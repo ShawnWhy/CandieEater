@@ -1,0 +1,359 @@
+
+body{
+    overflow: hidden ;
+}
+
+.candyRow{
+    height:10%;
+}
+.candyRow2{
+    height:10%;
+}
+
+.eyebrow{
+background-color: brown;
+border-radius:2px;
+height:2%;
+}
+.eyebrows{
+    height:5%;
+}
+.forehead{
+    height:30%;
+}
+.headRow{
+    position:relative;
+    height:50%;
+    top:20%;
+    width:80%;
+    margin:auto;
+    align-self: center;
+    left:10%;
+
+}
+.head{
+    height:100%;
+    margin:auto;
+    background-color:rgb(228, 180, 152);
+    background: linear-gradient(to right, rgb(206, 157, 128) 0%,rgb(228, 180, 152) 20%,rgb(228, 180, 152) 80%,rgb(206, 157, 128) 100%);
+
+    border-radius: 50% 50% 0 0;
+    position:relative;
+    overflow: hidden;
+    
+}
+.hair{
+    background-color:black;
+    border-radius: 0 0 80% 0;
+    height:50%;
+    border: 20px gray double
+}
+.pupil{
+    background-color:rgb(8, 71, 58);
+    position:relative;
+    width:80%;
+    height:auto;
+    padding-top:80%;
+    border-radius:50%;
+    margin:auto;
+    bottom:50%;
+    
+    
+    
+    
+}
+.innerPupil{
+    position:absolute;
+    width:60%;
+    height:60%;
+    border-radius: 50%;
+    background-color: rgb(48, 3, 3);
+    margin:auto;
+    left:20%;
+    bottom:20%;
+    
+    
+    
+}
+
+.eyes{
+    height:20%
+
+}
+.eye{
+    height:100%;
+    background-color: white;
+    border-radius: 60% 70% 0 70%;
+    overflow: hidden;
+    display: flex; 
+    border-top:6px solid  black;
+    
+}
+.eye2{
+    height:100%;
+    background-color: white;
+    border-radius: 70% 60% 70% 0;
+    overflow: hidden;
+    display:flex; 
+    border-top:6px solid  black; 
+
+}
+.nose{
+    height:10%;
+}
+.mouth{
+    height:30%;
+
+
+}
+.lips{
+    height:50%;
+    border-radius:60% 60% 40% 40%;
+    border:rgb(126, 43, 43) solid 7px;
+    border-top: rgb(126, 43, 43) solid 10px;
+    overflow: hidden;
+    position: relative;
+    top:50%;
+
+}
+.topRow{
+    height:80%;
+    position: relative;
+    bottom:20%;
+}
+.bottomRow{
+    height:80%;
+    position: relative;
+    top:0%;
+}
+.tooth{
+    border-radius:3px;
+    background-color:white;
+    border:1px solid gray;
+
+}
+
+.ear{
+    background-color:rgb(206, 157, 128) ;
+    height:30%;
+    top:50%;
+}
+
+.leftEar{
+    float:right;
+    border-radius:60% 0 0 70%
+
+}
+.rightEar{
+    float:left;
+    border-radius:0 60% 70% 0
+}
+
+.candiePart{
+    position:absolute;
+    margin:auto;
+    align-self: center;
+    justify-self: center;
+    overflow: hidden;
+
+}
+
+.candiePiece{
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    /* justify-content: center; */
+}
+
+.stripe{
+    height:100%;
+    width:10%;
+    margin-left:10%;
+
+}
+
+
+.invisibleP{
+    display:none;
+}
+
+.candieDrop{
+    animation: candieDrop 1s both;
+    position:relative;
+    z-index:2;
+}
+
+@keyframes candieDrop{
+    0%{ transform:translateY(0%)}
+    100%{transform:translateY(800%)}
+}
+.mergeRight0{
+    animation:mergeRight0 1.5s both;
+    transform-origin: left;
+}
+.mergeRight2{
+    animation:mergeRight2 1.5s both;
+    transform-origin: left;
+
+}
+
+
+
+@keyframes mergeRight0{  
+    0%{ transform:translateX(0%)scaleX(2)}
+    100%{transform:translateX(250%)scaleX(1)}
+}
+@keyframes mergeRight2{  
+    0%{ transform:translateX(0%)scaleX(1.5)}
+    100%{transform:translateX(100%)scaleX(1)}
+}
+
+
+
+
+
+.mergeLeft1{
+    animation:mergeLeft1 1.5s both;
+    transform-origin: right;
+
+}
+.mergeLeft3{
+    animation:mergeLeft3 1.5s both;
+    transform-origin: right;
+}
+
+@keyframes mergeLeft1{
+    0%{ transform:translateX(0%)scaleX(2)}
+    100%{transform:translateX(-200%)scaleX(1)}
+}
+
+@keyframes mergeLeft3{
+    0%{ transform:translateX(0%)scaleX(1.5)}
+    100%{transform:translateX(-100%)scaleX(1)}
+}
+
+.sprinkleJump{
+    animation:sprinkleJump .3s both;
+    transform-origin: center;
+}
+
+@keyframes sprinkleJump{
+    0%{transform:scale(2);}
+    100%{transform:scale(1)}
+}
+
+.buttonRow{
+    height:10%;
+}
+.topButton{
+    margin-top:1%;
+    height:60%;
+    text-align:center;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(151, 75, 223);
+    color:rgb(241, 245, 208);
+    border-radius:9999px;
+    animation:buttonGrow .5s both;
+    transform-origin: top;
+    font-size: x-large;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes buttonGrow{
+    0%{transform:scaleY(.5);}
+    100%{transform:scaleY(1)}
+}
+
+.rotateCandie{
+    
+    animation:rotateCandie 1s  infinite;
+    transform-origin: center;
+}
+
+@keyframes rotateCandie{
+    0%{transform:scale(1.1)}
+    
+    90%{transform:scale(1)}
+    100%{transform:scale(1.1)}
+} 
+
+.lips{
+    height:50%;
+    border-radius:60% 60% 40% 40%;
+    border:rgb(126, 43, 43) solid 7px;
+    border-top: rgb(126, 43, 43) solid 10px;
+    overflow: hidden;
+    position: relative;
+    top:50%;
+
+}
+.closeMouth{
+    animation:closeMouth .2s both
+}
+
+@keyframes closeMouth{
+    0%{height:50%;}
+    100%{height:1%}
+
+}
+
+.openMouth{
+    
+    animation:openMouth .5s both
+
+}
+.raiseMouth{
+    position:relative;
+    bottom:10%;
+}
+
+@keyframes openMouth{
+    0%{height:1%;}
+    100%{height:100%}
+}
+
+.chew{
+    animation:chew 1s linear;
+    animation-iteration-count:3 ;
+    position:relative;
+    
+    
+}
+
+@keyframes chew{
+    0%{ bottom:0%;}
+    50%{bottom:10%;}
+   100%{ bottom:0%;}
+}
+
+.lipChew{
+    animation:lipChew 1s;
+    animation-iteration-count:3;
+}
+
+@keyframes lipChew{
+    0%{height:50%}
+    25%{height:1%;}
+    75%{height:1%;}
+    100%{height:50%}
+}
+
+.loweredEyes{
+    bottom:-50%
+
+
+}
+.happyEyes{
+    height:2%;
+
+}
+
+.interiorMind{
+    position:absolute;
+    height:100%;
+    width:100%;
+    overflow: hidden;
+}
+
