@@ -8,6 +8,7 @@ var sprinkles =[];
 var allColors = [color1, color2, color3, color4]
 
 
+//creates the parts and adds them to their perspective containers
 
 function candieParts(){
  var candiePiece = $('.candiePiece')
@@ -51,9 +52,7 @@ var letters = '0123456789ABCDEF';
      $(cPart).addClass('candiePart')
      $(cPart).addClass('sprinkleJump')
      
-         
-     
-     
+     //determins if the candie part is going to be big part or dot
      var rotator = i+1;
     //  console.log(rotator%2)
      if(rotator%2==0){
@@ -74,23 +73,17 @@ var letters = '0123456789ABCDEF';
          $(candiePiece[i]).append(cPart);
         }, i*60);
     }
-
-  
-    
 }
 
 
+//create the combined candie in the center
 function combineCandie(){
     var left = Math.random()*60+20;
     var top = Math.random()*60+20;
     var candiePiece = $('.candiePiece')
     var candieParts = $('.candiePart')
     // candieParts.addClass('sprinkleJump');
-   
-
-      
-
-     candieHTML= ""
+    candieHTML= ""
      sprinkles =[];
     for(let i=0;i<candiePiece.length;i++){
         var left = Math.random()*80+20;
@@ -106,7 +99,7 @@ function combineCandie(){
             $(candiePiece[i]).html('');
         }
     }
-
+    
     $('.candie').html(candieHTML);
     $('.candie').css("bottom","100%")
     var candieParts = $('.candiePart')
@@ -118,15 +111,11 @@ function combineCandie(){
    
     }
     setTimeout(() => {
-        
-        // console.log(sprinkles);
+        //adds the sprinkes on to the main body
         for(let i=0;i<candieParts.length;i++){
-            
             s=0
-
             let dotNumber = Math.random()*10+4;
-
-            for(let j=0;j<dotNumber;j++){
+             for(let j=0;j<dotNumber;j++){
 
                 // console.log(sprinkles.length);
                 // console.log(candieParts[i])
@@ -145,22 +134,17 @@ function combineCandie(){
                 s++;
                 if (s>sprinkles.length){
                     s=0}
-                    
+                }
             }
-        }
-       
- 
-          
-    }, 500);
-}
+        }, 500);
+    }
 
-
+//does the initial animation of dragging the candie parts towards the center
 function candieMerge(){
     var candieParts = $('.candiePart')
     candieParts.removeClass('sprinkleJump');
     for(i=0;i<candieParts.length;i++){
         if(i==0||i%2==0){
-
             if(i<candieParts.length/2){
                  $(candieParts[i]).addClass("mergeRight"+i)
             }
@@ -183,7 +167,7 @@ function candieMerge(){
             
     }, 400);
 }
-
+//the canide falls
 function candieDrop(){
     var candie = $('.candie');
     candie.addClass('candieDrop');
@@ -194,8 +178,8 @@ function candieDrop(){
 }
 
 
+//parent function that creates the candie
 function createCandie(){
-
     candieMerge()
     setTimeout(() => {
      combineCandie()
@@ -203,6 +187,8 @@ function createCandie(){
 
 }
 
+
+//at the start, creates the button that initiates the candie creation process
 function start(){
      $('.createParts').removeClass('invisibleP')
      setTimeout(() => {
@@ -211,6 +197,7 @@ function start(){
     }, 500);
 }
 
+//button that creates the parts of the candie
 $('.createParts').on('click',event=>{
     event.stopPropagation();
     event.preventDefault();
@@ -225,16 +212,15 @@ $('.createParts').on('click',event=>{
     }, 500);
     $('.createParts').addClass("invisibleP")
     $('.createParts > p').addClass("invisibleP")
-  
-
-    
 })
+
+//button that merges teh parts into a single piece
 $('.mergeParts').on('click',event=>{
     event.stopPropagation();
     event.preventDefault();
     createCandie();
     $('.mergeParts').addClass("invisibleP")
-   
+//candie starts pulsing and the buttons are switched   
     setTimeout(() => {
         $('.candie').addClass('rotateCandie')
         $('.eatCandie').removeClass('invisibleP')
@@ -242,15 +228,11 @@ $('.mergeParts').on('click',event=>{
             $('.eatCandie > p').removeClass('invisibleP')
             
         }, 500);
-            
-        
-    }, 1500);
-    
-    // $('.')
-
+}, 1500);
     
 })
 
+//candie drops, person's eyes lower and then begins to chew candie, after a pause, the colored backgroud starts
 $('.eatCandie').on('click',event=>{
     event.stopPropagation();
     event.preventDefault();
@@ -273,23 +255,16 @@ $('.eatCandie').on('click',event=>{
             $('.pupil').removeClass('loweredEyes')
             $('.eye').removeClass('happyEyes')
             $('.eye2').removeClass('happyEyes')
-
-            
-            
-        }, 3000);
-        
-    }, 500);
-        
+            }, 3000);
+        }, 500);
     }, 1000);
-   
     $('.mergeParts').addClass("invisibleP")
     $('.mergeParts > p').addClass("invisibleP")
     $('.eatCandie').addClass('invisibleP')
     $('.eatCandie > p').addClass('invisibleP')
-    
-
-    
 })
+
+
 
 function closeMouth(){
     $('.lips').addClass('closeMouth')
@@ -302,8 +277,6 @@ function openMouth(){
 
     $('.lips').addClass('openMouth')
     $('.mouth').addClass('raiseMouth')
-
-
 }
 function chew(){
     $('.mouth').removeClass('raiseMouth')
@@ -316,7 +289,6 @@ function chew(){
     }, 1);
     
 }
-
 function lowerdEyes(){
     $('.pupil').addClass('loweredEyes')
 }
@@ -326,6 +298,7 @@ function happyEyes(){
     $('.eye2').addClass('happyEyes')
 }
 
+//adds the bits and pieces into the background
 function addStuff(){
     for(let i=0;i<20;i++){
     var choice = Math.floor(Math.random()*3)+1;
@@ -362,12 +335,13 @@ function addStuff(){
      $(cPart).css('border-radius',angle1+"%"+ angle2+"%"+ angle3+"%"+angle4+"%");
      $(cPart).css({'position':"absolute","left":left+'%',"top":top+'%'})
      $(cPart).css('opacity',"70%")
-    $(cPart).css('height', height1+"%");
+     $(cPart).css('height', height1+"%");
      $(cPart).css('width', width1+'%');
      $('.interiorMind').append(cPart)
     }
 }
 
+//changes the background color per chew and then adds the differenc shapes
 function FlavorColor(){
     $('.interiorMind').css("background-color",'white')
     $('.interiorMind').html("")
@@ -388,10 +362,7 @@ function FlavorColor(){
                     
                 }, 750);
                 
-            }, 750);
-            
-        
-}
+            }, 750);}
 
 start();
 // $('  .lips').addClass('lipChew')
