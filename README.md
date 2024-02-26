@@ -2,4 +2,4 @@
 
 https://shawnwhy.github.io/CandieEater/
 
-create tast landscapes
+create taste landscapes
